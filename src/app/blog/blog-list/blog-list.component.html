@@ -1,0 +1,49 @@
+<section class="blog-hero">
+  <div class="blog-hero-content">
+    <h1>Blog</h1>
+    <p class="lead">Insights, tutorials, and thoughts on AI and web development</p>
+  </div>
+</section>
+
+<section class="blog-container">
+  <div class="blog-sidebar">
+    <div class="category-filter">
+      <h2>Categories</h2>
+      <ul class="category-list">
+        <li *ngFor="let category of categories">
+          <a 
+            href="javascript:void(0)" 
+            (click)="filterByCategory(category)"
+            [class.active]="selectedCategory === category">
+            {{category}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="blog-posts">
+    <article class="blog-card" *ngFor="let post of filteredPosts">
+      <div class="blog-image">
+        <a [routerLink]="['/blog', post.id]">
+          <img [src]="post.imageUrl" [alt]="post.title">
+        </a>
+      </div>
+      <div class="blog-content">
+        <div class="blog-meta">
+          <span class="date">{{post.date | date:'mediumDate'}}</span>
+          <span class="category-tag" *ngFor="let category of post.categories.slice(0, 2)">
+            {{category}}
+          </span>
+        </div>
+        <h2><a [routerLink]="['/blog', post.id]">{{post.title}}</a></h2>
+        <p class="excerpt">{{post.excerpt}}</p>
+        <a [routerLink]="['/blog', post.id]" class="read-more">Read More <span class="arrow">→</span></a>
+      </div>
+    </article>
+    
+    <div *ngIf="filteredPosts.length === 0" class="no-posts">
+      <p>No blog posts found for the selected category.</p>
+    </div>
+  </div>
+</section> 

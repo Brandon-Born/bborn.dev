@@ -1,0 +1,61 @@
+<div class="blog-post-container" *ngIf="blogPost">
+  <div class="blog-post-header">
+    <h1>{{blogPost.title}}</h1>
+    <div class="post-meta">
+      <span class="post-date">{{blogPost.date | date:'longDate'}}</span>
+      <span class="post-author">by {{blogPost.author}}</span>
+      <div class="post-categories">
+        <span class="category" *ngFor="let category of blogPost.categories">{{category}}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="featured-image">
+    <img [src]="blogPost.imageUrl" [alt]="blogPost.title">
+  </div>
+  
+  <div class="blog-post-content" [innerHTML]="blogPost.content"></div>
+  
+  <div class="post-tags" *ngIf="blogPost.tags && blogPost.tags.length">
+    <h3>Tags:</h3>
+    <div class="tags-list">
+      <span class="tag" *ngFor="let tag of blogPost.tags">{{tag}}</span>
+    </div>
+  </div>
+  
+  <div class="share-post">
+    <h3>Share this post:</h3>
+    <div class="social-share">
+      <a href="javascript:void(0)" class="share-btn twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="javascript:void(0)" class="share-btn facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="javascript:void(0)" class="share-btn linkedin">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+  
+  <div class="related-posts" *ngIf="relatedPosts.length">
+    <h2>Related Posts</h2>
+    <div class="related-grid">
+      <div class="related-post-card" *ngFor="let related of relatedPosts">
+        <div class="related-image">
+          <a [routerLink]="['/blog', related.id]">
+            <img [src]="related.imageUrl" [alt]="related.title">
+          </a>
+        </div>
+        <div class="related-content">
+          <h3><a [routerLink]="['/blog', related.id]">{{related.title}}</a></h3>
+          <p class="related-date">{{related.date | date:'mediumDate'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading" *ngIf="!blogPost">
+  Loading blog post...
+</div> 

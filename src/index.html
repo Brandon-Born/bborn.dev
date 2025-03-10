@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Brandon Born | Web Developer</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Brandon Born - Web Developer leveraging AI to create and deploy projects at incredible speed">
+  <meta name="keywords" content="web development, AI, Brandon Born, developer, portfolio">
+  <meta name="author" content="Brandon Born">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Brandon Born | Web Developer">
+  <meta property="og:description" content="Web Developer leveraging AI to create and deploy projects at incredible speed">
+  <meta property="og:url" content="https://bborn.dev">
+  <meta property="og:type" content="website">
+  
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function() {
+      // Check for saved preference first
+      const savedTheme = localStorage.getItem('darkMode');
+      const useSystemTheme = localStorage.getItem('useSystemTheme');
+      let isDarkMode = false;
+
+      // Determine which theme to use
+      if (useSystemTheme !== 'false') {
+        // Use system preference if no explicit choice has been made
+        isDarkMode = window.matchMedia && 
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Store this initial state
+        localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+        localStorage.setItem('useSystemTheme', 'true');
+      } else if (savedTheme) {
+        // Use the saved preference
+        isDarkMode = JSON.parse(savedTheme);
+      }
+
+      // Apply the theme immediately to the document element
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+  
+  <!-- Add transition delay to prevent flash -->
+  <style>
+    body {
+      transition: none !important;
+    }
+    
+    /* Apply transitions after page loads */
+    .theme-transitions-ready body {
+      transition: background-color 0.3s ease, color 0.3s ease !important;
+    }
+  </style>
+</head>
+<body>
+  <app-root></app-root>
+  
+  <!-- Enable transitions after page load -->
+  <script>
+    window.addEventListener('load', function() {
+      // Add a small delay to ensure Angular has applied any needed classes
+      setTimeout(function() {
+        document.documentElement.classList.add('theme-transitions-ready');
+      }, 100);
+    });
+  </script>
+</body>
+</html>

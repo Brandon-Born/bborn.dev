@@ -1,0 +1,81 @@
+<div class="project-detail-container" *ngIf="project">
+  <div class="project-header">
+    <h1>{{project.title}}</h1>
+    <div class="project-categories">
+      <span class="category" *ngFor="let category of project.categories">{{category}}</span>
+    </div>
+  </div>
+  
+  <div class="project-showcase">
+    <img [src]="project.imageUrl" [alt]="project.title" class="main-image">
+    
+    <div class="project-links">
+      <a [href]="project.liveUrl" target="_blank" class="btn btn-primary" *ngIf="project.liveUrl">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+      <a [href]="project.repoUrl" target="_blank" class="btn btn-secondary" *ngIf="project.repoUrl">
+        <i class="fab fa-github"></i> GitHub Repo
+      </a>
+    </div>
+  </div>
+  
+  <div class="project-details">
+    <div class="project-description">
+      <h2>Project Overview</h2>
+      <div [innerHTML]="project.description"></div>
+    </div>
+    
+    <div class="project-meta">
+      <div class="meta-section">
+        <h3>Project Info</h3>
+        <ul class="meta-list">
+          <li><strong>Date:</strong> {{project.date}}</li>
+          <li><strong>Client:</strong> {{project.client || 'Personal Project'}}</li>
+          <li><strong>Type:</strong> {{project.type}}</li>
+        </ul>
+      </div>
+      
+      <div class="meta-section">
+        <h3>Technologies Used</h3>
+        <div class="tech-tags">
+          <span class="tag" *ngFor="let tech of project.technologies">{{tech}}</span>
+        </div>
+      </div>
+      
+      <div class="meta-section" *ngIf="project.aiFeatures && project.aiFeatures.length">
+        <h3>AI Features</h3>
+        <ul class="ai-features">
+          <li *ngFor="let feature of project.aiFeatures">{{feature}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="project-gallery" *ngIf="project.gallery && project.gallery.length">
+    <h2>Project Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let image of project.gallery">
+        <img [src]="image.url" [alt]="image.caption">
+        <p class="caption" *ngIf="image.caption">{{image.caption}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="related-projects" *ngIf="relatedProjects.length">
+    <h2>Related Projects</h2>
+    <div class="related-grid">
+      <div class="related-card" *ngFor="let related of relatedProjects">
+        <img [src]="related.imageUrl" [alt]="related.title">
+        <div class="related-info">
+          <h3>{{related.title}}</h3>
+          <p>{{related.shortDescription}}</p>
+          <a [routerLink]="['/projects', related.id]" class="btn btn-outline">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading" *ngIf="!project">
+  Loading project details...
+</div> 

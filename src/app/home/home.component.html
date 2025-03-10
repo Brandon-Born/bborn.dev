@@ -1,0 +1,110 @@
+<section class="hero">
+  <div class="section-header hero-content">
+    <h1>Brandon Born</h1>
+    <p>Web Developer leveraging AI to create and deploy projects at incredible speed</p>
+    <div class="cta-buttons">
+      <a routerLink="/projects" class="btn btn-primary">View Projects</a>
+      <a routerLink="/contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="featured-projects">
+  <div class="section-header">
+    <h2>Featured Projects</h2>
+    <p>Explore some of my recent web development work accelerated by AI</p>
+  </div>
+  
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of featuredProjects">
+      <div class="project-image">
+        <app-project-image [imageUrl]="project.imageUrl" [alt]="project.title"></app-project-image>
+      </div>
+      <div class="project-content">
+        <h3>{{project.title}}</h3>
+        <p>{{project.shortDescription}}</p>
+        <div class="project-tags">
+          <span class="tag" *ngFor="let tag of project.technologies.slice(0, 3)">{{tag}}</span>
+        </div>
+        <a [routerLink]="['/projects', project.id]" class="btn btn-outline">View Details</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="view-all">
+    <a routerLink="/projects" class="btn btn-text">View All Projects <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="services">
+  <div class="section-header">
+    <h2>My Expertise</h2>
+    <p>Web development services powered by AI to transform your ideas into reality - faster than ever</p>
+  </div>
+  
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h3>Rapid Website Development</h3>
+      <p>I build complete, customized websites in record time using AI-assisted tools while maintaining high quality standards and personalized design.</p>
+      <ul class="service-features">
+        <li>Custom designs</li>
+        <li>Content strategy</li>
+        <li>SEO optimization</li>
+      </ul>
+      <a routerLink="/projects" class="service-link">View examples <span class="arrow">→</span></a>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      </div>
+      <h3>Full-Stack Development</h3>
+      <p>I create modern, responsive web applications with clean code, optimal performance, and seamless user experiences across all devices.</p>
+      <ul class="service-features">
+        <li>Angular & React expertise</li>
+        <li>Responsive design</li>
+        <li>Progressive web apps</li>
+      </ul>
+      <a routerLink="/projects" class="service-link">View examples <span class="arrow">→</span></a>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+        </svg>
+      </div>
+      <h3>Content Creation</h3>
+      <p>I develop engaging, SEO-friendly content efficiently with AI assistance, keeping your website fresh and relevant while saving time and resources.</p>
+      <ul class="service-features">
+        <li>Blog posts & articles</li>
+        <li>Product descriptions</li>
+        <li>Marketing copy</li>
+      </ul>
+      <a routerLink="/blog" class="service-link">Learn more <span class="arrow">→</span></a>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <h3>AI Integration</h3>
+      <p>I enhance websites with AI capabilities that provide personalized experiences and automate complex tasks, giving your business a competitive edge.</p>
+      <ul class="service-features">
+        <li>Chatbots & assistants</li>
+        <li>Recommendation systems</li>
+        <li>Data analysis tools</li>
+      </ul>
+      <a routerLink="/contact" class="service-link">Get started <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section> 
