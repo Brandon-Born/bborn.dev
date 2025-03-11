@@ -1,5 +1,5 @@
-<div class="service-detail-container" *ngIf="service">
-  <div class="service-header">
+<section class="hero" *ngIf="service">
+  <div class="hero-content">
     <a routerLink="/services" class="back-link">
       <mat-icon>arrow_back</mat-icon>
       Back to Services
@@ -10,7 +10,9 @@
     <h1>{{service.title}}</h1>
     <p class="service-description">{{service.description}}</p>
   </div>
+</section>
 
+<div class="service-detail-container" *ngIf="service">
   <div class="service-content">
     <section class="features-section">
       <h2>Key Features</h2>

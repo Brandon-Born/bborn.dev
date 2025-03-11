@@ -1,9 +1,11 @@
-<section class="services-container">
-  <div class="services-header">
+<section class="hero">
+  <div class="section-header hero-content">
     <h1>Services</h1>
-    <p class="subtitle">Expert solutions powered by modern technology and AI</p>
+    <p>Expert solutions powered by modern technology and AI</p>
   </div>
+</section>
 
+<section class="services-container">
   <div class="services-grid">
     <div class="service-card" *ngFor="let service of services">
       <a [routerLink]="['/services', service.slug]" class="service-link">
