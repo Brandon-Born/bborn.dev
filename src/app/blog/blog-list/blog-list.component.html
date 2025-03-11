@@ -7,9 +7,42 @@
 
 <section class="blog-container">
   <div class="blog-sidebar">
-    <div class="category-filter">
+    <!-- Mobile dropdown trigger -->
+    <div class="mobile-filter-dropdown" (click)="toggleFilterDropdown()">
+      <span class="current-category">{{ selectedCategory === 'All' ? 'All Posts' : selectedCategory }}</span>
+      <svg class="dropdown-icon" [class.open]="isFilterDropdownOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+    
+    <!-- Mobile category chips for quick filtering -->
+    <div class="category-chips">
+      <button 
+        class="category-chip" 
+        [class.active]="selectedCategory === 'All'"
+        (click)="filterByCategory('All')">
+        All
+      </button>
+      <button 
+        *ngFor="let category of categories.slice(0, 4)"
+        class="category-chip"
+        [class.active]="selectedCategory === category"
+        (click)="filterByCategory(category)">
+        {{ category }}
+      </button>
+    </div>
+
+    <div class="category-filter" [class.open]="isFilterDropdownOpen">
       <h2>Categories</h2>
       <ul class="category-list">
+        <li>
+          <a 
+            href="javascript:void(0)" 
+            (click)="filterByCategory('All')"
+            [class.active]="selectedCategory === 'All'">
+            All Posts
+          </a>
+        </li>
         <li *ngFor="let category of categories">
           <a 
             href="javascript:void(0)" 
@@ -26,13 +59,15 @@
     <article class="blog-card" *ngFor="let post of filteredPosts">
       <div class="blog-image">
         <a [routerLink]="['/blog', post.id]">
-          <img [src]="post.imageUrl" [alt]="post.title">
+          <img [src]="post.imageUrl" [alt]="post.title" loading="lazy">
         </a>
       </div>
       <div class="blog-content">
         <div class="blog-meta">
           <span class="date">{{post.date | date:'mediumDate'}}</span>
-          <span class="category-tag" *ngFor="let category of post.categories.slice(0, 2)">
+          <span class="category-tag" 
+                *ngFor="let category of post.categories.slice(0, 2)"
+                (click)="filterByCategory(category)">
             {{category}}
           </span>
         </div>
@@ -44,6 +79,7 @@
     
     <div *ngIf="filteredPosts.length === 0" class="no-posts">
       <p>No blog posts found for the selected category.</p>
+      <button (click)="filterByCategory('All')">Show All Posts</button>
     </div>
   </div>
 </section> 
