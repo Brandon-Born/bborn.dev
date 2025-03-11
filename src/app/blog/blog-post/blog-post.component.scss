@@ -148,6 +148,36 @@
     pre, code {
       white-space: pre-wrap !important;
       word-break: break-word !important;
+      
+      .token.operator, 
+      .token.entity, 
+      .token.url, 
+      .language-css .token.string, 
+      .style .token.string {
+        background: transparent !important;
+        color: inherit !important;
+      }
+    }
+    
+    code:not(pre code) {
+      padding: 0.2em 0.4em;
+      background-color: var(--bg-tertiary);
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: monospace;
+    }
+    
+    pre {
+      max-width: 100% !important;
+      padding: 1em !important;
+      overflow-x: auto !important;
+      
+      .language-html, 
+      .language-xml, 
+      .language-jsx, 
+      .language-tsx {
+        color: var(--text-primary) !important;
+      }
     }
     
     a {
@@ -155,6 +185,14 @@
       overflow-wrap: break-word;
       display: inline-block;
       max-width: 100%;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        color: var(--primary);
+      }
     }
     
     table {

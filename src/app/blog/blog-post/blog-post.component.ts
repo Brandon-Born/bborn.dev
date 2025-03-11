@@ -64,16 +64,30 @@ export class BlogPostComponent implements OnInit {
   }
   
   /**
-   * Process HTML content to ensure proper mobile display
+   * Process HTML content to ensure proper mobile display and fix rendering issues
    */
   private processHtmlContent(html: string): string {
+    if (!html) return '';
+    
+    // Process code blocks specifically to handle code examples properly
+    html = this.processCodeBlocks(html);
+    
+    // Common substitution for incorrectly rendered content with extra < characters
+    // This typically happens when content contains code snippets or HTML examples
+    html = html.replace(/&lt;/g, '&amp;lt;');
+    html = html.replace(/&gt;/g, '&amp;gt;');
+    
+    // Fix specific sequences that might be problematic
+    // Replace instances like "<<" that shouldn't be rendered as HTML
+    html = html.replace(/<<(?!\/)/g, '&lt;&lt;');
+    
     // Add responsive styles to elements that might overflow
     html = html.replace(/<img/g, '<img style="max-width:100%;height:auto;display:block"');
     html = html.replace(/<table/g, '<table style="max-width:100%;display:block;overflow-x:auto;white-space:nowrap"');
     html = html.replace(/<pre/g, '<pre style="max-width:100%;overflow-x:auto;white-space:pre-wrap;word-break:break-word"');
     html = html.replace(/<iframe/g, '<iframe style="max-width:100%;height:auto"');
     
-    // Ensure code blocks don't overflow
+    // Ensure code blocks don't overflow and properly display code content
     html = html.replace(/<code/g, '<code style="white-space:pre-wrap;word-break:break-word;display:inline-block;max-width:100%"');
     
     // Prevent long words from breaking layout
@@ -82,6 +96,22 @@ export class BlogPostComponent implements OnInit {
     html = html.replace(/<li/g, '<li style="overflow-wrap:break-word;word-wrap:break-word"');
     
     return html;
+  }
+  
+  /**
+   * Special processing for code blocks to ensure code examples are properly displayed
+   */
+  private processCodeBlocks(html: string): string {
+    // Extract all code blocks
+    const codeBlockRegex = /<pre><code[^>]*>([\s\S]*?)<\/code><\/pre>/g;
+    return html.replace(codeBlockRegex, (match, codeContent) => {
+      // Double-escape HTML-like content within code blocks
+      let escapedCode = codeContent
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+        
+      return `<pre><code>${escapedCode}</code></pre>`;
+    });
   }
   
   loadRelatedPosts(currentPost: BlogPost) {
