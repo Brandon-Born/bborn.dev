@@ -7,24 +7,28 @@
 
 <section class="projects-container">
   <div class="filter-container">
-    <div class="section-header">
-      <h2>Filter Projects</h2>
-    </div>
     <div class="category-filters">
       <button 
         *ngFor="let category of categories" 
         class="filter-btn"
         [class.active]="selectedCategory === category"
         (click)="filterByCategory(category)">
-        {{category}}
+        <span class="filter-text">{{category}}</span>
+        <span class="filter-count" *ngIf="category !== 'All'">{{getCategoryCount(category)}}</span>
       </button>
     </div>
   </div>
   
-  <div class="projects-grid">
-    <div class="project-card" *ngFor="let project of filteredProjects">
+  <div class="projects-grid" [class.filtered-animation]="isFiltering">
+    <div class="project-card" 
+         *ngFor="let project of filteredProjects; let i = index" 
+         [class.filtered-out]="isFiltered(project)">
       <div class="project-image">
-        <img [src]="project.imageUrl" [alt]="project.title">
+        <img [src]="project.imageUrl" 
+             [alt]="project.title" 
+             loading="eager" 
+             decoding="sync"
+             fetchpriority="high">
         <div class="project-overlay">
           <a [routerLink]="['/projects', project.id]" class="btn btn-view">View Details</a>
         </div>
@@ -33,7 +37,12 @@
         <h3>{{project.title}}</h3>
         <p>{{project.shortDescription}}</p>
         <div class="project-tags">
-          <span class="tag" *ngFor="let tag of project.technologies">{{tag}}</span>
+          <span class="tag" 
+                *ngFor="let tag of project.technologies" 
+                [class.highlight-tag]="tagMatchesFilter(tag)"
+                (click)="filterByTag(tag, $event)">
+            {{tag}}
+          </span>
         </div>
       </div>
     </div>
@@ -41,5 +50,6 @@
   
   <div *ngIf="filteredProjects.length === 0" class="no-projects">
     <p>No projects found for the selected category.</p>
+    <button class="reset-filter-btn" (click)="resetFilter()">Show All Projects</button>
   </div>
 </section> 
