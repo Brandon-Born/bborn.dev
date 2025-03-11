@@ -18,4 +18,9 @@ export class FooterComponent {
     // In a real application, this would connect to an API
     // For now we'll just log the email
   }
+
+  // Method to scroll to top
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 } 
