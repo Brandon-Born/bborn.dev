@@ -13,6 +13,20 @@
     height: 4px;
     background: var(--primary-gradient);
   }
+
+  .ai-disclaimer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    
+    p {
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+  }
 }
 
 .footer-container {

@@ -1,3 +1,37 @@
+# Brandon Born's Portfolio Website
+
+This is my personal portfolio website showcasing my projects, services, and blog. Visit the live site at [bborn.dev](https://bborn.dev).
+
+## 🤖 AI-Powered Development
+
+This website was developed 100% using AI tools, primarily Claude from Anthropic, with human direction and oversight. It serves as a demonstration of how AI can be leveraged to create professional, full-featured web applications efficiently and effectively.
+
+### AI Development Features:
+- Complete codebase generation using AI
+- Modern Angular architecture and best practices
+- Responsive design and dark mode support
+- SEO optimization
+- Accessibility compliance
+- Performance optimization
+
+## 🚀 Features
+
+- Modern, responsive design with dark mode support
+- Service showcase with detailed service pages
+- Project portfolio with filtering capabilities
+- Blog integration
+- Newsletter subscription
+- Contact form
+- Social media integration
+
+## 🛠️ Technology Stack
+
+- Angular 17+
+- TypeScript
+- SCSS
+- Angular Material
+- Angular Animations
+
 # BbornDev
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
