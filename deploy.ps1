@@ -56,4 +56,3 @@ Write-Host "You can deploy the following files:" -ForegroundColor Green
 Write-Host "1. Full build: dist\bborn-dev\browser\" -ForegroundColor Yellow
 Write-Host "2. Packaged version: $deployName" -ForegroundColor Yellow
 Write-Host "=====================================" -ForegroundColor Green
-Write-Host "Remember to update your AI disclaimer before deploying." 
