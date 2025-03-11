@@ -32,6 +32,41 @@ This website was developed 100% using AI tools, primarily Claude from Anthropic,
 - Angular Material
 - Angular Animations
 
+## 🚀 Production Deployment
+
+To build and package this application for production deployment, use one of the following methods:
+
+### Using npm scripts:
+```bash
+# Build for production
+npm run build:prod
+
+# Build and create compressed files
+npm run deploy
+```
+
+### Using deployment scripts:
+For a complete automated deployment process, run the deployment script appropriate for your OS:
+
+**On Windows (PowerShell):**
+```powershell
+./deploy.ps1
+```
+
+**On Linux/macOS (Bash):**
+```bash
+chmod +x ./deploy.sh
+./deploy.sh
+```
+
+The deployment scripts will:
+1. Install all dependencies
+2. Build the application with production optimization
+3. Create compressed versions of assets for better performance
+4. Package everything into a timestamped ZIP file ready for deployment
+
+The output will be available in the `dist/` directory and as a ZIP archive in the project root.
+
 # BbornDev
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
