@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
+import { Component, OnInit, NgZone, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProjectsService } from '../../shared/services/projects.service';
@@ -28,6 +28,8 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
   isFiltering: boolean = false;
   activeTag: string | null = null;
   imagesLoaded: boolean = false;
+  isFilterDropdownOpen: boolean = false;
+  popularTags: string[] = [];
   
   constructor(
     private projectsService: ProjectsService,
@@ -62,9 +64,33 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
       const allCategories = projects.flatMap(p => p.categories);
       this.categories = ['All', ...Array.from(new Set<string>(allCategories))];
       
+      // Extract popular tags for mobile filtering
+      this.extractPopularTags(projects);
+      
       // Preload all project images
       this.preloadImages(projects);
     });
+  }
+  
+  /**
+   * Extract the most popular tags for quick filtering
+   */
+  extractPopularTags(projects: Project[]) {
+    // Count occurrences of each tag
+    const tagCounts = new Map<string, number>();
+    projects.forEach(project => {
+      project.technologies.forEach(tag => {
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+      });
+    });
+    
+    // Convert to array, sort by count, and take top 8
+    const sortedTags = Array.from(tagCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(entry => entry[0])
+      .slice(0, 8);
+    
+    this.popularTags = sortedTags;
   }
   
   /**
@@ -90,6 +116,30 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
     });
   }
   
+  /**
+   * Toggle mobile filter dropdown
+   */
+  toggleFilterDropdown() {
+    this.isFilterDropdownOpen = !this.isFilterDropdownOpen;
+  }
+  
+  /**
+   * Close dropdown when clicking outside
+   */
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const dropdown = document.querySelector('.filter-dropdown-btn');
+    const filters = document.querySelector('.category-filters');
+    
+    if (dropdown && filters && 
+        !dropdown.contains(target) && 
+        !filters.contains(target) && 
+        this.isFilterDropdownOpen) {
+      this.isFilterDropdownOpen = false;
+    }
+  }
+  
   filterByCategory(category: string) {
     this.isFiltering = true;
     this.selectedCategory = category;
@@ -102,6 +152,9 @@ export class ProjectsListComponent implements OnInit, AfterViewInit {
         p.categories.includes(category)
       );
     }
+    
+    // Close mobile dropdown after selection
+    this.isFilterDropdownOpen = false;
     
     // Quick transition for filtering
     setTimeout(() => {

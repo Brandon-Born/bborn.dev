@@ -3,6 +3,10 @@
   padding: 5rem 2rem;
   text-align: center;
   
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+  
   .projects-hero-content {
     max-width: 800px;
     margin: 0 auto;
@@ -10,12 +14,20 @@
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
     }
     
     .lead {
       font-size: 1.25rem;
       color: var(--text-tertiary);
       margin-bottom: 1rem;
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -24,17 +36,84 @@
   padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 }
 
 .filter-container {
   margin-bottom: 2.5rem;
   text-align: center;
   
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .filter-dropdown-btn {
+    display: none;
+    
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background-color: var(--bg-tertiary);
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      
+      .dropdown-icon {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.3s ease;
+        
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+      
+      &:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+    }
+  }
+  
   .category-filters {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
     justify-content: center;
+    
+    @media (max-width: 768px) {
+      // Mobile dropdown style
+      flex-direction: column;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+      opacity: 0;
+      margin: 0;
+      gap: 0.5rem;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      
+      &.open {
+        max-height: 500px;
+        opacity: 1;
+        margin-bottom: 1rem;
+      }
+    }
     
     .filter-btn {
       background-color: var(--bg-tertiary);
@@ -51,6 +130,17 @@
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-sm);
+      
+      @media (max-width: 768px) {
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        
+        &::before {
+          display: none;
+        }
+      }
       
       &::before {
         content: '';
@@ -91,6 +181,11 @@
         &::before {
           opacity: 0.1;
         }
+        
+        @media (max-width: 768px) {
+          transform: none;
+          background-color: var(--bg-tertiary-hover);
+        }
       }
       
       &.active {
@@ -99,6 +194,10 @@
         box-shadow: var(--shadow-md);
         transform: translateY(-2px);
         
+        @media (max-width: 768px) {
+          transform: none;
+        }
+        
         &::before {
           opacity: 0;
         }
@@ -106,6 +205,49 @@
         .filter-count {
           background-color: var(--text-on-primary);
           color: var(--primary);
+        }
+      }
+    }
+  }
+  
+  .tag-filters {
+    margin-top: 1.5rem;
+    
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+    
+    .popular-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
+      
+      @media (max-width: 768px) {
+        gap: 0.4rem;
+      }
+      
+      .tag-btn {
+        background-color: var(--bg-tertiary);
+        border: none;
+        padding: 0.25rem 0.75rem;
+        border-radius: 2rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        
+        @media (max-width: 768px) {
+          font-size: 0.7rem;
+          padding: 0.25rem 0.6rem;
+        }
+        
+        &:hover, &.active {
+          background-color: var(--primary);
+          color: var(--text-on-primary);
+          transform: translateY(-2px);
         }
       }
     }
@@ -119,6 +261,11 @@
   min-height: 200px;
   transition: opacity 0.15s ease;
   will-change: opacity;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
   
   &.filtered-animation {
     opacity: 0.8;

@@ -9,14 +9,14 @@
     </div>
     
     <div class="footer-content">
-      <div class="footer-section about-section">
-        <h3>About</h3>
+      <div class="footer-section about-section" [class.expanded]="isSectionExpanded('about')">
+        <h3 (click)="toggleSection('about')" [class.active]="isSectionExpanded('about')">About</h3>
         <p>I'm a web developer who combines technical expertise with AI-powered tools to deliver exceptional projects efficiently and effectively.</p>
         <a routerLink="/about" class="footer-link" (click)="scrollToTop()">Learn more <span class="arrow">→</span></a>
       </div>
       
-      <div class="footer-section">
-        <h3>Services</h3>
+      <div class="footer-section" [class.expanded]="isSectionExpanded('services')">
+        <h3 (click)="toggleSection('services')" [class.active]="isSectionExpanded('services')">Services</h3>
         <ul class="footer-list">
           <li><a [routerLink]="['/services', 'rapid-website-development']" (click)="scrollToTop()">Rapid Website Development</a></li>
           <li><a [routerLink]="['/services', 'full-stack-development']" (click)="scrollToTop()">Full-Stack Development</a></li>
@@ -25,8 +25,8 @@
         </ul>
       </div>
       
-      <div class="footer-section">
-        <h3>Navigation</h3>
+      <div class="footer-section" [class.expanded]="isSectionExpanded('navigation')">
+        <h3 (click)="toggleSection('navigation')" [class.active]="isSectionExpanded('navigation')">Navigation</h3>
         <ul class="footer-list">
           <li><a routerLink="/home" (click)="scrollToTop()">Home</a></li>
           <li><a routerLink="/about" (click)="scrollToTop()">About</a></li>
@@ -36,8 +36,8 @@
         </ul>
       </div>
       
-      <div class="footer-section">
-        <h3>Connect</h3>
+      <div class="footer-section" [class.expanded]="isSectionExpanded('connect')">
+        <h3 (click)="toggleSection('connect')" [class.active]="isSectionExpanded('connect')">Connect</h3>
         <div class="social-links">
           <a href="https://github.com/Brandon-Born/bborn.dev" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

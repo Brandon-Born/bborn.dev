@@ -11,6 +11,17 @@ import { CommonModule } from '@angular/common';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  expandedSections: { [key: string]: boolean } = {};
+  
+  // Toggle a footer section (for mobile accordion)
+  toggleSection(sectionId: string) {
+    this.expandedSections[sectionId] = !this.expandedSections[sectionId];
+  }
+  
+  // Check if a section is expanded
+  isSectionExpanded(sectionId: string): boolean {
+    return !!this.expandedSections[sectionId];
+  }
   
   // Stub for newsletter subscribe functionality
   subscribeToNewsletter(email: string) {

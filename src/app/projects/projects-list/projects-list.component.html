@@ -7,7 +7,16 @@
 
 <section class="projects-container">
   <div class="filter-container">
-    <div class="category-filters">
+    <!-- Mobile dropdown button -->
+    <button class="filter-dropdown-btn" (click)="toggleFilterDropdown()">
+      <span>{{ selectedCategory }} Projects</span>
+      <svg class="dropdown-icon" [class.open]="isFilterDropdownOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+    
+    <!-- Category filters -->
+    <div class="category-filters" [class.open]="isFilterDropdownOpen">
       <button 
         *ngFor="let category of categories" 
         class="filter-btn"
@@ -16,6 +25,19 @@
         <span class="filter-text">{{category}}</span>
         <span class="filter-count" *ngIf="category !== 'All'">{{getCategoryCount(category)}}</span>
       </button>
+    </div>
+    
+    <!-- Popular tags filter (optional) -->
+    <div class="tag-filters" *ngIf="popularTags.length > 0">
+      <div class="popular-tags">
+        <button 
+          *ngFor="let tag of popularTags" 
+          class="tag-btn"
+          [class.active]="activeTag === tag"
+          (click)="filterByTag(tag, $event)">
+          {{tag}}
+        </button>
+      </div>
     </div>
   </div>
   
