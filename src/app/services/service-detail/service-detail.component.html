@@ -1,0 +1,54 @@
+<div class="service-detail-container" *ngIf="service">
+  <div class="service-header">
+    <a routerLink="/services" class="back-link">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Services
+    </a>
+    <div class="service-icon">
+      <mat-icon>{{service.icon}}</mat-icon>
+    </div>
+    <h1>{{service.title}}</h1>
+    <p class="service-description">{{service.description}}</p>
+  </div>
+
+  <div class="service-content">
+    <section class="features-section">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-item" *ngFor="let feature of service.features">
+          <mat-icon>check_circle</mat-icon>
+          <p>{{feature}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <h2>Our Process</h2>
+      <div class="process-timeline">
+        <div class="process-step" *ngFor="let step of service.process; let i = index">
+          <div class="step-number">{{i + 1}}</div>
+          <div class="step-content">
+            <h3>{{step.title}}</h3>
+            <p>{{step.description}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <h2>Benefits</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item" *ngFor="let benefit of service.benefits">
+          <mat-icon>stars</mat-icon>
+          <p>{{benefit}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to get started?</h2>
+    <p>Let's discuss how we can help with your {{service.title.toLowerCase()}} needs.</p>
+    <a routerLink="/contact" class="cta-button">Get in touch</a>
+  </div>
+</div> 

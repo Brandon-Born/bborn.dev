@@ -1,0 +1,25 @@
+<section class="services-container">
+  <div class="services-header">
+    <h1>Services</h1>
+    <p class="subtitle">Expert solutions powered by modern technology and AI</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card" *ngFor="let service of services">
+      <a [routerLink]="['/services', service.slug]" class="service-link">
+        <div class="service-icon">
+          <mat-icon>{{service.icon}}</mat-icon>
+        </div>
+        <h3>{{service.title}}</h3>
+        <p>{{service.description}}</p>
+        <span class="learn-more">Learn more →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to start your project?</h2>
+    <p>Let's discuss how I can help bring your ideas to life.</p>
+    <a routerLink="/contact" class="cta-button">Get in touch</a>
+  </div>
+</section> 
