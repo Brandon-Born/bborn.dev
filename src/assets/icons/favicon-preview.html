@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Preview</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #f9fafb;
+      color: #111827;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .favicon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .favicon-option {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .favicon-display {
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .favicon-display img {
+      width: 128px;
+      height: 128px;
+      object-fit: contain;
+    }
+    
+    .favicon-small {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .favicon-small img {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .favicon-small img:nth-child(2) {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .code-block {
+      background-color: #f3f4f6;
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      width: 100%;
+      overflow-x: auto;
+    }
+    
+    .instructions {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #e5e7eb;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Favicon Options</h1>
+  
+  <div class="favicon-grid">
+    <div class="favicon-option">
+      <h2>BB Text</h2>
+      <div class="favicon-display">
+        <img src="favicon.svg" alt="BB Text Favicon">
+        <div class="favicon-small">
+          <img src="favicon.svg" alt="BB Text Favicon Small">
+          <img src="favicon.svg" alt="BB Text Favicon Tiny">
+        </div>
+      </div>
+      <div class="code-block">
+        &lt;link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"&gt;
+      </div>
+    </div>
+    
+    <div class="favicon-option">
+      <h2>BB Path</h2>
+      <div class="favicon-display">
+        <img src="favicon-path.svg" alt="BB Path Favicon">
+        <div class="favicon-small">
+          <img src="favicon-path.svg" alt="BB Path Favicon Small">
+          <img src="favicon-path.svg" alt="BB Path Favicon Tiny">
+        </div>
+      </div>
+      <div class="code-block">
+        &lt;link rel="icon" href="assets/icons/favicon-path.svg" type="image/svg+xml"&gt;
+      </div>
+    </div>
+    
+    <div class="favicon-option">
+      <h2>Simple Circle</h2>
+      <div class="favicon-display">
+        <img src="favicon-simple.svg" alt="Simple Circle Favicon">
+        <div class="favicon-small">
+          <img src="favicon-simple.svg" alt="Simple Circle Favicon Small">
+          <img src="favicon-simple.svg" alt="Simple Circle Favicon Tiny">
+        </div>
+      </div>
+      <div class="code-block">
+        &lt;link rel="icon" href="assets/icons/favicon-simple.svg" type="image/svg+xml"&gt;
+      </div>
+    </div>
+    
+    <div class="favicon-option">
+      <h2>Code Brackets</h2>
+      <div class="favicon-display">
+        <img src="favicon-code.svg" alt="Code Brackets Favicon">
+        <div class="favicon-small">
+          <img src="favicon-code.svg" alt="Code Brackets Favicon Small">
+          <img src="favicon-code.svg" alt="Code Brackets Favicon Tiny">
+        </div>
+      </div>
+      <div class="code-block">
+        &lt;link rel="icon" href="assets/icons/favicon-code.svg" type="image/svg+xml"&gt;
+      </div>
+    </div>
+  </div>
+  
+  <div class="instructions">
+    <h2>How to use these favicons</h2>
+    <ol>
+      <li>Choose your preferred favicon design from the options above</li>
+      <li>Copy the code snippet to your index.html file</li>
+      <li>For broad browser support, add a fallback .ico file:
+        <div class="code-block">
+          &lt;link rel="icon" type="image/x-icon" href="favicon.ico"&gt;
+        </div>
+      </li>
+      <li>For iOS Safari support, add:
+        <div class="code-block">
+          &lt;link rel="apple-touch-icon" href="assets/icons/your-chosen-favicon.svg"&gt;
+        </div>
+      </li>
+    </ol>
+    <p>To generate .ico and other sizes, use an online converter tool like <a href="https://convertio.co/svg-ico/" target="_blank">Convertio</a> or <a href="https://realfavicongenerator.net/" target="_blank">Real Favicon Generator</a>.</p>
+  </div>
+</body>
+</html> 

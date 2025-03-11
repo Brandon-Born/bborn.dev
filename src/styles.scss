@@ -1,6 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * Main Stylesheet
+ * Table of Contents:
+ * 1. Variables
+ * 2. Mixins
+ * 3. Reset & Base Styles
+ * 4. Utilities
+ * 5. Components
+ * 6. Animations
+ */
 
-/* Base Styles */
+/* ======================================================
+   1. Variables
+   ====================================================== */
 :root {
   /* Primary Colors */
   --primary: #6366f1;
@@ -88,218 +99,9 @@
   --button-secondary-hover-bg: rgba(99, 102, 241, 0.2);
 }
 
-/* Reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  padding-top: 0;
-  margin-top: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0.5em;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text-primary);
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-/* Global Button Styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  transition: var(--transition);
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1.5;
-  border: 1px solid transparent;
-}
-
-.btn-primary {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
-  border-color: var(--button-primary-border);
-  
-  &:hover, &:focus {
-    background-color: var(--button-primary-hover-bg);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-}
-
-.btn-secondary {
-  background-color: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
-  border-color: var(--button-secondary-border);
-  
-  &:hover, &:focus {
-    background-color: var(--button-secondary-hover-bg);
-    transform: translateY(-2px);
-  }
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: var(--primary);
-  border-color: var(--primary);
-  
-  &:hover, &:focus {
-    background-color: var(--primary);
-    color: white;
-  }
-}
-
-.btn-text {
-  padding: 0.5rem;
-  background-color: transparent;
-  color: var(--primary);
-  border: none;
-  
-  .arrow {
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-  }
-  
-  &:hover, &:focus {
-    .arrow {
-      transform: translateX(4px);
-    }
-  }
-}
-
-/* Utilities */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-.section {
-  padding: var(--section-spacing) 0;
-}
-
-.text-gradient {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Standardized section header styling across the site */
-.section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  
-  h1, h2 {
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-  }
-  
-  p {
-    color: var(--text-tertiary);
-    max-width: 700px;
-    margin: 0 auto 1rem;
-    font-size: 1.125rem;
-  }
-}
-
-.card {
-  background-color: var(--bg-card);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  
-  &:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-5px);
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: calc(var(--section-spacing) / 2) 0;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.75rem;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease forwards;
-}
-
-// Common mixins and shared styles
+/* ======================================================
+   2. Mixins
+   ====================================================== */
 @mixin gradient-text {
   background: var(--primary-gradient);
   -webkit-background-clip: text;
@@ -375,7 +177,102 @@ p {
   }
 }
 
-// Shared component styles
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+/* ======================================================
+   3. Reset & Base Styles
+   ====================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ======================================================
+   4. Utilities
+   ====================================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--section-spacing) 0;
+}
+
+.text-gradient {
+  @include gradient-text;
+}
+
 .page-container {
   @include section-container;
 }
@@ -384,19 +281,107 @@ p {
   @include section-header;
 }
 
-.card {
-  @include card-styles;
-}
-
-.cta-button {
-  @include cta-button;
-}
-
 .gradient-text {
   @include gradient-text;
 }
 
-// Common grid layouts
+/* ======================================================
+   5. Components
+   ====================================================== */
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border-color: var(--button-primary-border);
+  
+  &:hover, &:focus {
+    background-color: var(--button-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border-color: var(--button-secondary-border);
+  
+  &:hover, &:focus {
+    background-color: var(--button-secondary-hover-bg);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+  
+  &:hover, &:focus {
+    background-color: var(--primary);
+    color: white;
+  }
+}
+
+.btn-text {
+  padding: 0.5rem;
+  background-color: transparent;
+  color: var(--primary);
+  border: none;
+  
+  .arrow {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover, &:focus {
+    .arrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+/* Cards */
+.card {
+  @include card-styles;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h1, h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    @include gradient-text;
+    display: inline-block;
+  }
+  
+  p {
+    color: var(--text-tertiary);
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* Grid Layouts */
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -407,7 +392,7 @@ p {
   }
 }
 
-// Common CTA section
+/* CTA Section */
 .cta-section {
   text-align: center;
   padding: 4rem 2rem;
@@ -436,5 +421,72 @@ p {
     color: var(--text-tertiary);
     opacity: 0.8;
     margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    @include cta-button;
+  }
+}
+
+/* ======================================================
+   6. Animations
+   ====================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease forwards;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .section {
+    padding: calc(var(--section-spacing) / 2) 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
   }
 }
