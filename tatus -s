@@ -1,0 +1,11 @@
+package-lock.json
+package.json
+src/app/about/about.component.html
+src/app/about/about.component.scss
+src/app/app.config.ts
+src/app/home/home.component.scss
+src/app/projects/project-detail/project-detail.component.scss
+src/app/projects/projects-list/projects-list.component.html
+src/app/projects/projects-list/projects-list.component.scss
+src/app/projects/projects-list/projects-list.component.ts
+src/app/projects/projects.component.scss
