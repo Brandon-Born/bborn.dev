@@ -36,33 +36,50 @@ export class BlogPostComponent implements OnInit {
   }
   
   loadPost(postId: string) {
-    this.blogService.getBlogPostById(postId).subscribe(post => {
-      if (post) {
-        this.post = post;
-        
-        // Sanitize HTML content
-        if (post.content) {
-          this.post.content = this.processHtmlContent(post.content);
+    this.blogService.getBlogPostById(postId).subscribe(
+      (post: BlogPost | null) => {
+        if (post) {
+          this.post = post;
+          
+          // Process and sanitize HTML content
+          if (this.post && this.post.content) {
+            const processedContent = this.processHtmlContent(this.post.content);
+            this.post.content = processedContent;
+          }
+          
+          // Update page title and meta tags
+          if (post.title && post.excerpt) {
+            this.title.setTitle(`${post.title} | Blog`);
+            this.meta.updateTag({ name: 'description', content: post.excerpt });
+          }
+          
+          // Load related posts
+          this.loadRelatedPosts(post);
         }
-        
-        // Set page title and meta tags
-        this.title.setTitle(`${post.title} | Blog`);
-        this.meta.updateTag({ name: 'description', content: post.excerpt });
-        
-        // Load related posts
-        this.loadRelatedPosts(post);
+      },
+      (error: any) => {
+        console.error('Error loading blog post:', error);
       }
-    });
+    );
   }
   
   /**
    * Process HTML content to ensure proper mobile display
    */
   private processHtmlContent(html: string): string {
-    // Add max-width to any element that might overflow
-    html = html.replace(/<img/g, '<img style="max-width:100%;height:auto"');
-    html = html.replace(/<table/g, '<table style="max-width:100%;display:block;overflow-x:auto"');
-    html = html.replace(/<pre/g, '<pre style="max-width:100%;overflow-x:auto;white-space:pre-wrap"');
+    // Add responsive styles to elements that might overflow
+    html = html.replace(/<img/g, '<img style="max-width:100%;height:auto;display:block"');
+    html = html.replace(/<table/g, '<table style="max-width:100%;display:block;overflow-x:auto;white-space:nowrap"');
+    html = html.replace(/<pre/g, '<pre style="max-width:100%;overflow-x:auto;white-space:pre-wrap;word-break:break-word"');
+    html = html.replace(/<iframe/g, '<iframe style="max-width:100%;height:auto"');
+    
+    // Ensure code blocks don't overflow
+    html = html.replace(/<code/g, '<code style="white-space:pre-wrap;word-break:break-word;display:inline-block;max-width:100%"');
+    
+    // Prevent long words from breaking layout
+    html = html.replace(/<p/g, '<p style="overflow-wrap:break-word;word-wrap:break-word;hyphens:auto"');
+    html = html.replace(/<h[1-6]/g, '<$& style="overflow-wrap:break-word;word-wrap:break-word;hyphens:auto"');
+    html = html.replace(/<li/g, '<li style="overflow-wrap:break-word;word-wrap:break-word"');
     
     return html;
   }
