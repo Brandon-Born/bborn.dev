@@ -169,6 +169,7 @@
           type="submit" 
           class="btn-submit" 
           [disabled]="contactForm.invalid || isSubmitting"
+          aria-label="Submit contact form"
         >
           {{ isSubmitting ? 'Sending...' : 'Send Message' }}
         </button>

@@ -8,7 +8,7 @@
 <section class="projects-container">
   <div class="filter-container">
     <!-- Mobile dropdown button -->
-    <button class="filter-dropdown-btn" (click)="toggleFilterDropdown()">
+    <button class="filter-dropdown-btn" (click)="toggleFilterDropdown()" aria-label="Toggle filter categories">
       <span>{{ selectedCategory }} Projects</span>
       <svg class="dropdown-icon" [class.open]="isFilterDropdownOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="6 9 12 15 18 9"></polyline>
@@ -21,7 +21,9 @@
         *ngFor="let category of categories" 
         class="filter-btn"
         [class.active]="selectedCategory === category"
-        (click)="filterByCategory(category)">
+        (click)="filterByCategory(category)"
+        [attr.aria-label]="'Filter by ' + category + ' projects'"
+        [attr.aria-pressed]="selectedCategory === category">
         <span class="filter-text">{{category}}</span>
         <span class="filter-count" *ngIf="category !== 'All'">{{getCategoryCount(category)}}</span>
       </button>
@@ -34,7 +36,9 @@
           *ngFor="let tag of popularTags" 
           class="tag-btn"
           [class.active]="activeTag === tag"
-          (click)="filterByTag(tag, $event)">
+          (click)="filterByTag(tag, $event)"
+          [attr.aria-label]="'Filter by ' + tag + ' tag'"
+          [attr.aria-pressed]="activeTag === tag">
           {{tag}}
         </button>
       </div>

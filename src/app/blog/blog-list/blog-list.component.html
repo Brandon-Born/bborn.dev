@@ -20,14 +20,18 @@
       <button 
         class="category-chip" 
         [class.active]="selectedCategory === 'All'"
-        (click)="filterByCategory('All')">
+        (click)="filterByCategory('All')"
+        aria-label="Show all blog posts"
+        [attr.aria-pressed]="selectedCategory === 'All'">
         All
       </button>
       <button 
         *ngFor="let category of categories.slice(0, 4)"
         class="category-chip"
         [class.active]="selectedCategory === category"
-        (click)="filterByCategory(category)">
+        (click)="filterByCategory(category)"
+        [attr.aria-label]="'Show ' + category + ' blog posts'"
+        [attr.aria-pressed]="selectedCategory === category">
         {{ category }}
       </button>
     </div>
@@ -79,7 +83,7 @@
     
     <div *ngIf="filteredPosts.length === 0" class="no-posts">
       <p>No blog posts found for the selected category.</p>
-      <button (click)="filterByCategory('All')">Show All Posts</button>
+      <button (click)="filterByCategory('All')" aria-label="Reset filter and show all blog posts">Show All Posts</button>
     </div>
   </div>
 </section> 
