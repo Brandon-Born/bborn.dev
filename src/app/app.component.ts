@@ -2,21 +2,38 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterModule, HeaderComponent, FooterComponent],
+  imports: [RouterModule, HeaderComponent, FooterComponent, CommonModule],
   standalone: true
 })
 export class AppComponent implements OnInit {
   title = 'ai-developer-portfolio';
+  isLoading = true; // Add loading state
 
   ngOnInit(): void {
     // No need to apply theme again as it's already done in index.html
     // Just ensure system theme listeners are set up properly
     this.setupSystemThemeListeners();
+    
+    // Hide the app until it's fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Use a small timeout to ensure Angular components are ready
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 50); 
+    });
+    
+    // Fallback in case DOMContentLoaded already fired
+    if (document.readyState === 'complete') {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 50);
+    }
   }
 
   private setupSystemThemeListeners(): void {

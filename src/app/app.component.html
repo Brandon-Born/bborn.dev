@@ -177,7 +177,13 @@
   }
 </style>
 
-<div class="app-container">
+<!-- App loading spinner - visible when app is loading -->
+<div *ngIf="isLoading" class="app-loading">
+  <div class="spinner"></div>
+</div>
+
+<!-- Main app container - hidden until content is ready -->
+<div class="app-container" [class.app-loaded]="!isLoading">
   <app-header></app-header>
   <main class="main-content">
     <router-outlet></router-outlet>
