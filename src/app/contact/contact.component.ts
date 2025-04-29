@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { finalize } from 'rxjs/operators';
 
 interface FAQ {
   question: string;
@@ -13,11 +15,12 @@ interface FAQ {
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule]
 })
 export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   isSubmitting = false;
+  showSuccessMessage = false;
   
   faqs: FAQ[] = [
     {
@@ -47,7 +50,7 @@ export class ContactComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -79,15 +82,39 @@ export class ContactComponent implements OnInit {
     }
 
     this.isSubmitting = true;
+    const formSpreeUrl = 'https://formspree.io/f/xpwdqdvj'; // Your Formspree URL
+    const headers = new HttpHeaders({ 'Accept': 'application/json' });
+    const formData = this.contactForm.value;
 
-    // Simulate API call with timeout
-    setTimeout(() => {
-      console.log('Form submitted:', this.contactForm.value);
-      this.contactForm.reset();
-      this.isSubmitting = false;
-      // Here you would typically send the form data to your backend
-      alert('Your message has been sent successfully!');
-    }, 1500);
+    this.http.post(formSpreeUrl, formData, { headers: headers })
+      .pipe(
+        finalize(() => this.isSubmitting = false) // Ensure isSubmitting is set to false after request completes
+      )
+      .subscribe({
+        next: (response) => {
+          console.log('Form submitted successfully to Formspree:', response);
+          this.contactForm.reset();
+          // Optionally, clear touched/dirty states if reset doesn't do it fully
+          Object.keys(this.contactForm.controls).forEach(key => {
+            this.contactForm.get(key)?.markAsPristine();
+            this.contactForm.get(key)?.markAsUntouched();
+            this.contactForm.get(key)?.updateValueAndValidity();
+          });
+          this.showSuccessMessage = true;
+        },
+        error: (error) => {
+          console.error('Error submitting form to Formspree:', error);
+          // You might want to show a more user-friendly error message
+          alert('There was an error sending your message. Please try again later.');
+          this.showSuccessMessage = false;
+        }
+      });
+  }
+
+  resetForm(): void {
+    this.showSuccessMessage = false;
+    // Optional: Re-initialize form if reset() wasn't enough
+    // this.initializeForm(); 
   }
 
   toggleFaq(index: number): void {
