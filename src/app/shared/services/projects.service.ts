@@ -15,7 +15,7 @@ export class ProjectsService {
       imageUrl: '/assets/images/projects/dlatc-placeholder.jpg',
       technologies: ['Next.js', 'React', 'TypeScript', 'Vercel Postgres', 'Prisma', 'Tailwind CSS', 'Shadcn/ui', 'NextAuth.js', 'CoinGecko API', 'Resend', 'Vercel Cron Jobs'],
       categories: ['Web App', 'Full-stack', 'Tool', 'Notifications'],
-      featured: true,
+      featured: false,
       date: '2025-04-27',
       type: 'Full-stack Application',
       liveUrl: 'https://dont-look-at-the-chart.com',
@@ -37,6 +37,22 @@ export class ProjectsService {
       liveUrl: 'https://freyrandsons.com',
       aiFeatures: ['AI Product Planner', 'Google Gemini Integration', 'Location-based Suggestions', 'Audience Targeting'],
       repoUrl: 'https://github.com/Brandon-Born/freyr-and-sons-landing'
+    },
+    {
+      id: 'peev',
+      title: 'PEEV — Profit & Expense Evaluator for Vendors',
+      shortDescription: 'Full-featured team-based inventory and sales tracking web application for vending machine operations.',
+      description: '<p>PEEV is a comprehensive team-based inventory and sales tracking web application built with React and Firebase, designed specifically for vending machine operations. This system helps vending machine operators track purchases, manage inventory across multiple locations, monitor expiration dates, and analyze profitability on a per-unit basis.</p><p>Forked and transformed from P.I.T.A. to serve vending machine businesses, PEEV features multi-user teams with shared data access, smart inventory management with purchase units vs sellable units separation, and accurate per-unit COGS calculations. The application includes automated email notifications for expiring inventory, advanced team management capabilities, and mobile-responsive vending-friendly workflows.</p><p>Key features include simplified purchase flow ("I bought 1 pack of 24 cans for $24.00 at Costco"), individual unit sales tracking, real-time profit analysis, and comprehensive reporting. The system uses Firebase for team-based authentication and Firestore for secure data isolation, ensuring each team only accesses their own inventory data.</p>',
+      imageUrl: '/assets/images/projects/peev.png',
+      technologies: ['React', 'Vite', 'TypeScript', 'Material UI', 'TanStack Query', 'React Hook Form', 'Zod', 'Firebase Auth', 'Firestore', 'Vercel', 'Recharts', 'Resend'],
+      categories: ['Web App', 'Full-stack', 'Business Tools', 'Inventory Management', 'Team Collaboration'],
+      featured: true,
+      date: '2025-09-08',
+      type: 'Full-stack Application',
+      liveUrl: 'https://peev.freyrandsons.com',
+      client: 'Freyr and Sons LLC',
+      aiFeatures: ['Vibe Coded'],
+      repoUrl: 'https://github.com/Brandon-Born/peev'
     },
     {
       id: 'pita',
