@@ -8,6 +8,22 @@ import { Project } from '../models/project.model';
 export class ProjectsService {
   private projects: Project[] = [
     {
+      id: 'tessie',
+      title: 'Tessie: Defender of The Universe 🛡️',
+      shortDescription: 'Educational math game designed for 8-year-old children with ADHD and executive function challenges.',
+      description: '<p>Tessie: Defender of The Universe is an engaging educational math game designed specifically for 8-year-old children with ADHD and executive function challenges. Help Tessie protect Earth from Math Aliens by solving addition and subtraction problems in this adaptive learning experience.</p><p>The game features adaptive difficulty that automatically adjusts based on player performance, progressive alien speeds starting at a gentle 25% pace, and cute emoji aliens that make learning fun. With positive reinforcement celebrating correct answers and no harsh penalties for wrong answers, it creates a supportive learning environment.</p><p>Key features include a dynamic space environment with 150 twinkling stars, animated nebulas, and orbiting planets. The Cosmic Boutique allows players to unlock customizations using earned Star Shards, including planet replacements, character heads and bodies, alien skins, and weapon effects. All customizations persist between sessions, encouraging continued engagement and learning.</p>',
+      imageUrl: '/assets/images/projects/tessie.png',
+      technologies: ['HTML5 Canvas', 'Vanilla JavaScript', 'CSS3', 'Local Storage', 'Node.js', 'SVG Graphics'],
+      categories: ['Game', 'Educational', 'Accessibility', 'ADHD Support', 'Children'],
+      featured: true,
+      date: '2025-12-20',
+      type: 'Educational Game',
+      liveUrl: 'https://tessie.bborn.dev',
+      client: 'Personal Project',
+      aiFeatures: ['Vibe Coded'],
+      repoUrl: 'https://github.com/Brandon-Born/tessie-protector-of-the-universe'
+    },
+    {
       id: 'dlatc',
       title: "Don't Look At The Chart (DLATC)",
       shortDescription: 'Cryptocurrency price alert service via Email/SMS.',
