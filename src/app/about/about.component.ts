@@ -10,34 +10,34 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent {
   skills = [
-    { name: 'Angular', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'JavaScript/TypeScript', level: 95 },
-    { name: 'HTML/CSS', level: 90 },
-    { name: 'Node.js', level: 80 },
-    { name: 'AI Integration', level: 85 },
-    { name: 'UI/UX Design', level: 75 },
-    { name: 'Responsive Web Design', level: 90 }
+    { name: 'Angular / TypeScript', level: 95 },
+    { name: 'Java / Spring Boot', level: 90 },
+    { name: 'Node.js', level: 85 },
+    { name: 'AWS Cloud Infrastructure', level: 85 },
+    { name: 'CI/CD & DevOps', level: 80 },
+    { name: 'Database Design', level: 85 },
+    { name: 'System Architecture', level: 90 },
+    { name: 'AI Integration', level: 80 }
   ];
   
   experiences = [
     {
-      title: 'AI Web Developer',
-      company: 'AI Tech Solutions',
-      period: '2021 - Present',
-      description: 'Developing AI-powered web applications and integrating machine learning models into web interfaces.'
+      title: 'Technical Team Lead',
+      company: 'Integrated Data Services (IDS)',
+      period: 'Jan 2019 - Present',
+      description: 'Leading modernization of critical defense applications from legacy Flex to Angular/Cloud. Directing full lifecycle migration, architectural strategy, and DevSecOps implementation for high-visibility DoD programs.'
     },
     {
-      title: 'Frontend Developer',
-      company: 'Web Innovations',
-      period: '2018 - 2021',
-      description: 'Created responsive web applications using Angular and React frameworks.'
+      title: 'Co-Founder & Principal Developer',
+      company: 'Foster-Training.com',
+      period: '2017 - Present',
+      description: 'Architecting and maintaining a full-stack SaaS training platform for the foster care community. utilizing AI and serverless architecture to scale solutions for social good.'
     },
     {
-      title: 'Web Designer',
-      company: 'Creative Digital',
-      period: '2016 - 2018',
-      description: 'Designed user interfaces and implemented them using HTML, CSS, and JavaScript.'
+      title: 'Senior Application Developer',
+      company: 'Esri / Stone and Blade',
+      period: 'July 2016 - Jan 2019',
+      description: 'Spearheaded front-end overhaul of the Esri Training platform using Angular and AWS. Managed migration from AngularJS to Angular 6 and established rigid code standards.'
     }
   ];
 } 
