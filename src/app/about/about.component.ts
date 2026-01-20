@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class AboutComponent {
   skills = [
@@ -19,7 +20,7 @@ export class AboutComponent {
     { name: 'System Architecture', level: 90 },
     { name: 'AI Integration', level: 80 }
   ];
-  
+
   experiences = [
     {
       title: 'Technical Team Lead',
