@@ -8,6 +8,22 @@ import { Project } from '../models/project.model';
 export class ProjectsService {
   private projects: Project[] = [
     {
+      id: 'bb-trainer',
+      title: 'BB Trainer',
+      shortDescription: 'Replay coach for Blood Bowl 3 that provides constructive turn-by-turn feedback from uploaded match XML.',
+      description: '<p>BB Trainer is a replay coaching app for Blood Bowl 3. Users upload a replay XML file, choose their team, and receive practical feedback designed to improve decision-making and safer play patterns.</p><p>The app focuses on clear, educational guidance rather than competitive automation, helping players review matches and identify what to improve in future games.</p>',
+      imageUrl: '/assets/images/projects/bb-trainer-logo.png',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+      categories: ['Web App', 'Tool', 'Gaming'],
+      featured: true,
+      date: '2026-02-09',
+      type: 'Web Application',
+      client: 'Personal Project',
+      liveUrl: 'https://bb-trainer.vercel.app/',
+      aiFeatures: ['Replay Coaching Feedback'],
+      repoUrl: 'https://github.com/Brandon-Born/bb-trainer'
+    },
+    {
       id: 'tessie',
       title: 'Tessie: Defender of The Universe 🛡️',
       shortDescription: 'Educational math game designed for 8-year-old children with ADHD and executive function challenges.',
