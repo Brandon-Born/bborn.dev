@@ -11,14 +11,14 @@ import { RouterModule } from '@angular/router';
 })
 export class AboutComponent {
   skills = [
-    { name: 'Angular / TypeScript', level: 95 },
-    { name: 'Java / Spring Boot', level: 90 },
-    { name: 'Node.js', level: 85 },
-    { name: 'AWS Cloud Infrastructure', level: 85 },
-    { name: 'CI/CD & DevOps', level: 80 },
-    { name: 'Database Design', level: 85 },
-    { name: 'System Architecture', level: 90 },
-    { name: 'AI Integration', level: 80 }
+    'Angular / TypeScript',
+    'Java / Spring Boot',
+    'Node.js',
+    'AWS Cloud Infrastructure',
+    'CI/CD & DevOps',
+    'Database Design',
+    'System Architecture',
+    'AI Integration'
   ];
 
   experiences = [
@@ -32,7 +32,7 @@ export class AboutComponent {
       title: 'Co-Founder & Principal Developer',
       company: 'Foster-Training.com',
       period: '2017 - Present',
-      description: 'Architecting and maintaining a full-stack SaaS training platform for the foster care community. utilizing AI and serverless architecture to scale solutions for social good.'
+      description: 'Architecting and maintaining a full-stack SaaS training platform for the foster care community, utilizing AI and serverless architecture to scale solutions for social good.'
     },
     {
       title: 'Senior Application Developer',
