@@ -24,28 +24,28 @@ export class ContactComponent implements OnInit {
   
   faqs: FAQ[] = [
     {
-      question: 'What services do you provide?',
-      answer: 'I provide a range of services including web development, AI integration, mobile app development, UI/UX design, and tech consulting. Each service can be customized to meet your specific project requirements.',
+      question: 'What kind of work do you take on?',
+      answer: 'Enterprise modernization, full-stack development, DevSecOps, and practical AI integration. I\'m the best fit for teams that need to move a legacy system to a modern stack or need an experienced technical lead to set architecture and standards.',
       isOpen: false
     },
     {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while a complex application with custom features could take 2-3 months or more. I\'ll provide a detailed timeline during our initial consultation.',
+      question: 'Are you available for new work?',
+      answer: 'I lead a technical team full time, so I take on a limited number of outside engagements. Send me a short description of the system, the team, and the timeline, and I\'ll tell you honestly whether I can help.',
       isOpen: false
     },
     {
-      question: 'What is your pricing structure?',
-      answer: 'I offer flexible pricing options including hourly rates, fixed project fees, and retainer arrangements. Each project is quoted based on scope, complexity, and timeline. Contact me for a free consultation and quote tailored to your needs.',
+      question: 'Have you worked on government and defense programs?',
+      answer: 'Yes. Most of my recent work has been modernizing critical defense applications, so I\'m used to the security, compliance, and reliability expectations that come with that environment.',
       isOpen: false
     },
     {
-      question: 'Do you offer ongoing maintenance and support?',
-      answer: 'Yes, I provide ongoing maintenance and support services to ensure your project continues to run smoothly after launch. Maintenance packages can include updates, security patches, performance optimization, and content updates.',
+      question: 'What technologies do you work with?',
+      answer: 'Primarily Java/Spring Boot, Angular and TypeScript, Node.js, and AWS, along with CI/CD tooling and relational databases. I\'ve also led migrations off older front-end stacks like Flex and AngularJS.',
       isOpen: false
     },
     {
-      question: 'What is your development process?',
-      answer: 'My development process includes discovery and planning, design, development, testing, deployment, and ongoing support. I maintain clear communication throughout the project and provide regular updates on progress.',
+      question: 'How do you use AI in your work?',
+      answer: 'Pragmatically. I use AI-assisted development to move faster and build AI features into products where they solve a real problem, but everything still goes through normal engineering review, testing, and security practices.',
       isOpen: false
     }
   ];
