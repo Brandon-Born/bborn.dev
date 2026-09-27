@@ -31,17 +31,9 @@
   
   <div class="skills-section">
     <h2>Skills & Expertise</h2>
-    <div class="skills-container">
-      <div class="skill" *ngFor="let skill of skills">
-        <div class="skill-header">
-          <span class="skill-name">{{skill.name}}</span>
-          <span class="skill-level">{{skill.level}}%</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress" [style.width.%]="skill.level"></div>
-        </div>
-      </div>
-    </div>
+    <ul class="skills-container">
+      <li class="skill" *ngFor="let skill of skills">{{skill}}</li>
+    </ul>
   </div>
   
   <div class="experience-section">
@@ -70,7 +62,7 @@
         <span class="years">2007</span>
       </div>
       <p>
-        FOUNDATION IN ENGINEERING PRINCIPLES AND COMPUTER SCIENCE.
+        Foundation in engineering principles and computer science.
       </p>
     </div>
   </div>
