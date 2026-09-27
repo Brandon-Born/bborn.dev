@@ -25,147 +25,148 @@ interface ServiceDetail {
 })
 export class ServiceDetailComponent implements OnInit {
   serviceDetails: Record<string, ServiceDetail> = {
-    'rapid-website-development': {
-      title: 'Rapid Website Development',
-      description: 'Fast and efficient website development using modern frameworks and AI-powered tools to deliver high-quality results quickly.',
-      icon: 'rocket_launch',
+    'enterprise-modernization': {
+      title: 'Enterprise Modernization',
+      description: 'Leading migrations of legacy enterprise and defense applications to modern Angular, Spring Boot and cloud architectures without disrupting the mission they support.',
+      icon: 'account_balance',
       features: [
-        'Quick turnaround times without compromising quality',
-        'Modern, responsive designs that work on all devices',
-        'AI-powered development tools for increased efficiency',
-        'SEO optimization built-in from the start'
+        'Legacy front-end migrations (Flex, AngularJS) to modern Angular',
+        'Target architecture and phased migration planning',
+        'Backend modernization with Java and Spring Boot',
+        'Moving on-premises workloads to cloud infrastructure'
       ],
       process: [
         {
-          title: 'Requirements Gathering',
-          description: 'We start by understanding your needs, goals, and target audience to create a tailored solution.'
+          title: 'Assess the Legacy System',
+          description: 'Map what the current system does, who depends on it, and where the real risk lives before any code is rewritten.'
         },
         {
-          title: 'Design & Development',
-          description: 'Using modern frameworks and AI tools, we rapidly develop your website while maintaining high quality.'
+          title: 'Define the Target Architecture',
+          description: 'Choose a modern stack and a migration path that the team can deliver and maintain long after the project ends.'
         },
         {
-          title: 'Testing & Optimization',
-          description: 'Rigorous testing ensures your website performs flawlessly across all devices and browsers.'
+          title: 'Migrate Incrementally',
+          description: 'Move functionality in controlled phases so users keep working while the new system comes online.'
         },
         {
-          title: 'Launch & Support',
-          description: 'We handle the deployment and provide ongoing support to ensure your website continues to perform.'
+          title: 'Harden and Hand Off',
+          description: 'Put CI/CD, code standards and documentation in place so the modernized system stays healthy.'
         }
       ],
       benefits: [
-        'Faster time to market',
-        'Cost-effective development',
-        'Modern, scalable architecture',
-        'Ongoing support and maintenance'
+        'Retire unsupported technology before it becomes a liability',
+        'Lower long-term maintenance cost',
+        'A codebase new engineers can actually work in',
+        'Continuity for the users who depend on the system'
       ]
     },
     'full-stack-development': {
       title: 'Full-Stack Development',
-      description: 'End-to-end development services covering both frontend and backend, creating seamless and scalable applications.',
+      description: 'Designing and building production applications end to end with Java/Spring Boot, Angular, Node.js and AWS.',
       icon: 'code',
       features: [
-        'Complete web application development',
-        'Database design and optimization',
-        'API development and integration',
-        'Cloud infrastructure setup'
+        'Angular and TypeScript front ends',
+        'Java/Spring Boot and Node.js services and APIs',
+        'Relational database design',
+        'AWS and serverless infrastructure'
       ],
       process: [
         {
-          title: 'Architecture Planning',
-          description: 'Designing a robust and scalable architecture that meets your application needs.'
+          title: 'Architecture',
+          description: 'Design a system that fits the requirements, the team and the budget, not just the latest trend.'
         },
         {
-          title: 'Frontend Development',
-          description: 'Creating intuitive and responsive user interfaces using modern frameworks.'
+          title: 'Front End',
+          description: 'Build responsive, maintainable interfaces in Angular with consistent code standards.'
         },
         {
-          title: 'Backend Development',
-          description: 'Building secure and efficient server-side applications and APIs.'
+          title: 'Back End',
+          description: 'Build secure services and APIs with Spring Boot or Node.js, backed by a well-modeled database.'
         },
         {
-          title: 'Deployment & Scaling',
-          description: 'Setting up cloud infrastructure and ensuring your application can scale.'
+          title: 'Deploy and Operate',
+          description: 'Ship through automated pipelines to cloud infrastructure that can grow with usage.'
         }
       ],
       benefits: [
-        'Seamless integration between frontend and backend',
-        'Scalable architecture',
-        'Comprehensive testing',
-        'Performance optimization'
+        'One lead who understands the whole stack',
+        'Scalable, maintainable architecture',
+        'Consistent standards from UI to database',
+        'Software that is built to be operated, not just demoed'
       ]
     },
-    'content-creation': {
-      title: 'Content Creation',
-      description: 'Strategic content development that combines technical expertise with engaging writing to help your brand stand out.',
-      icon: 'edit_note',
+    'devsecops': {
+      title: 'DevSecOps & Security',
+      description: 'Automated CI/CD pipelines and secure coding standards (OWASP) that make releases repeatable and audit-ready.',
+      icon: 'verified_user',
       features: [
-        'Technical blog posts and articles',
-        'Documentation writing',
-        'SEO-optimized content',
-        'Social media content'
+        'CI/CD pipeline design and automation',
+        'Secure coding standards based on OWASP guidance',
+        'Automated testing and code quality gates',
+        'Release processes that support compliance and audit'
       ],
       process: [
         {
-          title: 'Topic Research',
-          description: 'Identifying relevant topics that resonate with your audience.'
+          title: 'Review the Delivery Pipeline',
+          description: 'Find the manual steps, gaps in testing and security blind spots in how code gets to production today.'
         },
         {
-          title: 'Content Strategy',
-          description: 'Developing a content plan that aligns with your business goals.'
+          title: 'Automate the Build',
+          description: 'Build CI/CD pipelines that test, scan and package every change the same way.'
         },
         {
-          title: 'Writing & Editing',
-          description: 'Creating engaging content that combines technical accuracy with readability.'
+          title: 'Set the Standards',
+          description: 'Establish secure coding practices and review standards the whole team follows.'
         },
         {
-          title: 'Optimization & Publishing',
-          description: 'Optimizing content for search engines and publishing across platforms.'
+          title: 'Keep It Running',
+          description: 'Monitor the pipeline and refine it as the system and its compliance needs evolve.'
         }
       ],
       benefits: [
-        'Increased online visibility',
-        'Established thought leadership',
-        'Improved SEO rankings',
-        'Engaging technical content'
+        'Faster, more predictable releases',
+        'Security built in rather than bolted on',
+        'Fewer surprises at audit time',
+        'Less time spent on manual deployment work'
       ]
     },
     'ai-integration': {
       title: 'AI Integration',
-      description: 'Leverage the power of artificial intelligence to enhance your applications and automate workflows.',
+      description: 'Pragmatic use of AI where it earns its place: automating workflows and adding AI features to real products, with the same engineering rigor as the rest of the stack.',
       icon: 'smart_toy',
       features: [
-        'Custom AI model integration',
-        'Automated workflow development',
-        'Natural language processing',
-        'Machine learning implementation'
+        'Integrating LLM APIs into existing applications',
+        'Automating repetitive, document-heavy workflows',
+        'AI-assisted development practices for engineering teams',
+        'Guardrails for data handling and output quality'
       ],
       process: [
         {
-          title: 'AI Assessment',
-          description: 'Evaluating opportunities for AI integration in your business processes.'
+          title: 'Find the Right Problem',
+          description: 'Identify where AI saves real time or adds real value, and where a conventional solution is the better choice.'
         },
         {
-          title: 'Solution Design',
-          description: 'Designing AI-powered solutions that meet your specific needs.'
+          title: 'Prototype',
+          description: 'Build a small, working version quickly to test the idea against real data.'
         },
         {
-          title: 'Implementation',
-          description: 'Integrating AI capabilities into your existing systems and workflows.'
+          title: 'Integrate',
+          description: 'Bring the feature into the production system with proper security, error handling and monitoring.'
         },
         {
-          title: 'Monitoring & Optimization',
-          description: 'Ensuring AI systems perform optimally and continue to improve over time.'
+          title: 'Measure and Refine',
+          description: 'Track whether it is actually helping users and adjust based on the results.'
         }
       ],
       benefits: [
-        'Increased efficiency',
-        'Automated workflows',
-        'Enhanced decision making',
-        'Competitive advantage'
+        'AI features grounded in real use cases',
+        'Less manual, repetitive work',
+        'Production-quality integration, not a demo',
+        'Clear-eyed advice on when not to use AI'
       ]
     }
   };
+
 
   service: ServiceDetail | undefined;
   slug: string = '';

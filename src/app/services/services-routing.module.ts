@@ -8,6 +8,9 @@ const routes: Routes = [
     path: '',
     component: ServicesComponent
   },
+  // Retired service pages
+  { path: 'rapid-website-development', redirectTo: '', pathMatch: 'full' },
+  { path: 'content-creation', redirectTo: '', pathMatch: 'full' },
   {
     path: ':slug',
     component: ServiceDetailComponent

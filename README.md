@@ -22,7 +22,7 @@ This is my personal portfolio website showcasing my projects, services, and blog
 
 ## 🤖 AI-Powered Development
 
-This website was developed 100% using AI tools, primarily Claude from Anthropic, with human direction and oversight. It serves as a demonstration of how AI can be leveraged to create professional, full-featured web applications efficiently and effectively.
+This site was built with AI-assisted development, primarily Claude from Anthropic, under my direction and review.
 
 ### AI Development Features:
 - Complete codebase generation using AI

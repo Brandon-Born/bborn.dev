@@ -15,7 +15,7 @@
 <div class="service-detail-container" *ngIf="service">
   <div class="service-content">
     <section class="features-section">
-      <h2>Key Features</h2>
+      <h2>What This Covers</h2>
       <div class="features-grid">
         <div class="feature-item" *ngFor="let feature of service.features">
           <mat-icon>check_circle</mat-icon>
@@ -25,7 +25,7 @@
     </section>
 
     <section class="process-section">
-      <h2>Our Process</h2>
+      <h2>Approach</h2>
       <div class="process-timeline">
         <div class="process-step" *ngFor="let step of service.process; let i = index">
           <div class="step-number">{{i + 1}}</div>
@@ -38,7 +38,7 @@
     </section>
 
     <section class="benefits-section">
-      <h2>Benefits</h2>
+      <h2>Outcomes</h2>
       <div class="benefits-grid">
         <div class="benefit-item" *ngFor="let benefit of service.benefits">
           <mat-icon>stars</mat-icon>
