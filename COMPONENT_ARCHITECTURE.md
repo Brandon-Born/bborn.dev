@@ -20,10 +20,9 @@ These components form the main layout and are present on most pages.
         *   Includes theme toggling functionality (light/dark mode).
         *   Handles the mobile navigation menu display and interactions.
 *   **`FooterComponent` (`src/app/core/footer/footer.component.ts`)**
-    *   **Role:** Displays site information, copyright, social links, and potentially a newsletter signup.
+    *   **Role:** Displays site information, copyright, and social links.
     *   **Connections:**
         *   Contains static information and external links.
-        *   May include form elements (e.g., newsletter signup).
 
 ## Page-Level Components (Routed Components)
 
@@ -52,14 +51,6 @@ These components represent the main content areas for different sections of the 
 *   **`ContactComponent` (`src/app/contact/contact.component.ts`)**
     *   **Role:** Provides contact information and a form for users to send messages. Includes FAQ section.
     *   **Connections:** Handles form submission, potentially interacting with a backend service or email API.
-*   **`BlogListComponent` (`src/app/blog/blog-list/blog-list.component.ts`)**
-    *   **Role:** Displays a list of blog posts with filtering options (e.g., by category).
-    *   **Connections:**
-        *   Fetches blog post data (likely via a `BlogService`).
-        *   Links to individual blog posts using `[routerLink]="['/blog', post.id]"`.
-*   **`BlogPostComponent` (`src/app/blog/blog-post/blog-post.component.ts`)** (Assumed path)
-    *   **Role:** Displays the full content of a single blog post, identified by a route parameter (e.g., `/blog/:id`).
-    *   **Connections:** Fetches data for a specific blog post based on the route parameter (likely via `BlogService`).
 
 ## Shared Components
 
@@ -67,12 +58,12 @@ These might exist within `src/app/shared/` or specific feature modules for reuse
 
 ## Routing
 
-*   **`app.routes.ts` (`src/app/app.routes.ts`)**: Defines the main application routes, mapping URL paths (e.g., `/home`, `/projects`, `/projects/:id`) to their corresponding page-level components. Lazy loading might be configured here or in feature-specific routing modules (`projects.module.ts`, `blog.module.ts`, etc.).
+*   **`app.routes.ts` (`src/app/app.routes.ts`)**: Defines the main application routes, mapping URL paths (e.g., `/home`, `/projects`, `/projects/:id`) to their corresponding page-level components. Lazy loading might be configured here or in feature-specific routing modules (`projects.module.ts`, etc.).
 
 ## Services
 
 *   **Located in `src/app/services/`**: Services encapsulate reusable business logic, data fetching, or utility functions.
-    *   **Examples (Inferred):** `ProjectService` (to manage project data), `BlogService` (to manage blog data), `ContactService` (to handle form submissions), `ThemeService` (potentially, though theme logic seems distributed currently).
+    *   **Examples (Inferred):** `ProjectService` (to manage project data), `ContactService` (to handle form submissions), `ThemeService` (potentially, though theme logic seems distributed currently).
     *   **Connections:** Services are typically injected into components via the constructor to provide data or functionality.
 
 ## Data Flow Summary
