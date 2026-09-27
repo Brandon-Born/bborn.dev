@@ -159,7 +159,7 @@
         }
       }
       
-      p, ul, .social-links, .newsletter {
+      p, ul, .social-links {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
@@ -171,7 +171,7 @@
           content: '−';
         }
         
-        p, ul, .social-links, .newsletter {
+        p, ul, .social-links {
           max-height: 500px;
           margin-bottom: 1rem;
         }
@@ -324,66 +324,6 @@
   }
 }
 
-.newsletter {
-  h4 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    
-    @media (max-width: 768px) {
-      font-size: 0.9rem;
-      margin-bottom: 0.75rem;
-    }
-  }
-  
-  .subscribe-form {
-    display: flex;
-    
-    @media (max-width: 768px) {
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    
-    input {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--bg-tertiary);
-      border-radius: 6px 0 0 6px;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: inherit;
-      outline: none;
-      transition: var(--transition);
-      
-      &:focus {
-        border-color: var(--primary);
-      }
-    }
-    
-    button {
-      background: var(--primary-gradient);
-      color: white;
-      border: none;
-      border-radius: 0 6px 6px 0;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      
-      svg {
-        width: 18px;
-        height: 18px;
-      }
-      
-      &:hover {
-        opacity: 0.9;
-      }
-    }
-  }
-}
-
 .footer-divider {
   height: 1px;
   background-color: var(--bg-tertiary);
@@ -410,26 +350,5 @@
   
   p {
     margin: 0;
-  }
-  
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-    
-    @media (max-width: 768px) {
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    a {
-      color: var(--text-tertiary);
-      text-decoration: none;
-      transition: var(--transition);
-      
-      &:hover {
-        color: var(--primary);
-      }
-    }
   }
 }

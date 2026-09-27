@@ -1,14 +1,12 @@
 # Brandon Born's Portfolio Website
 
-This is my personal portfolio website showcasing my projects, services, and blog. Visit the live site at [bborn.dev](https://bborn.dev).
+This is my personal portfolio website showcasing my projects and services. Visit the live site at [bborn.dev](https://bborn.dev).
 
 ## 🚀 Features
 
 - Modern, responsive design with dark mode support
 - Service showcase with detailed service pages
 - Project portfolio with filtering capabilities
-- Blog integration
-- Newsletter subscription
 - Contact form
 - Social media integration
 
