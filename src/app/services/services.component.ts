@@ -21,26 +21,26 @@ interface Service {
 export class ServicesComponent implements OnInit {
   services: Service[] = [
     {
-      title: 'Rapid Website Development',
-      description: 'Fast and efficient website development using modern frameworks and AI-powered tools to deliver high-quality results quickly.',
-      icon: 'rocket_launch',
-      slug: 'rapid-website-development'
+      title: 'Enterprise Modernization',
+      description: 'Leading migrations of legacy enterprise and defense applications to modern Angular, Spring Boot and cloud architectures without disrupting the mission they support.',
+      icon: 'account_balance',
+      slug: 'enterprise-modernization'
     },
     {
       title: 'Full-Stack Development',
-      description: 'End-to-end development services covering both frontend and backend, creating seamless and scalable applications.',
+      description: 'Designing and building production applications end to end with Java/Spring Boot, Angular, Node.js and AWS.',
       icon: 'code',
       slug: 'full-stack-development'
     },
     {
-      title: 'Content Creation',
-      description: 'Strategic content development that combines technical expertise with engaging writing to help your brand stand out.',
-      icon: 'edit_note',
-      slug: 'content-creation'
+      title: 'DevSecOps & Security',
+      description: 'Automated CI/CD pipelines and secure coding standards (OWASP) that make releases repeatable and audit-ready.',
+      icon: 'verified_user',
+      slug: 'devsecops'
     },
     {
       title: 'AI Integration',
-      description: 'Leverage the power of artificial intelligence to enhance your applications and automate workflows.',
+      description: 'Pragmatic use of AI where it earns its place: automating workflows and adding AI features to real products, with the same engineering rigor as the rest of the stack.',
       icon: 'smart_toy',
       slug: 'ai-integration'
     }
